@@ -16,34 +16,13 @@ mouse.addEventListener("keydown", event => {
   const xPosition = parseInt(mouse.style.left);
   const yPosition = parseInt(mouse.style.top);
 
-  let leftCoord = xPosition - mouse.offsetWidth;
-  let rightCoord = xPosition + mouse.offsetWidth;
-  let downCoord = yPosition + mouse.offsetHeight;
-  let upCoord = yPosition - mouse.offsetHeight;
-
   if (event.key === "ArrowLeft") {
-    if (leftCoord < 0) {
-      leftCoord = 0;
-    }
-
-    mouse.style.left = `${leftCoord}px`;
+    mouse.style.left = `${xPosition - mouse.offsetWidth}px`;
   } else if (event.key === "ArrowRight") {
-    if (rightCoord > window.offsetWidth - mouse.offsetWidth) {
-      rightCoord = window.offseWidth - mouse.offsetWidth;
-    }
-
-    mouse.style.left = `${rightCoord}px`;
+    mouse.style.left = `${xPosition + mouse.offsetWidth}px`;
   } else if (event.key === "ArrowDown") {
-    if (downCoord > window.offsetHeight - mouse.offsetHight) {
-      downCoord = window.offsetHeight - mouse.offsetHeight;
-    }
-
-    mouse.style.top = `${downCoord}px`;
+    mouse.style.top = `${yPosition + mouse.offsetHeight}px`;
   } else if (event.key === "ArrowUp") {
-    if (upCoord < 0) {
-      upCoord = 0;
-    }
-
-    mouse.style.top = `${upCoord}px`;
+    mouse.style.top = `${yPosition - mouse.offsetHeight}px`;
   }
 });
